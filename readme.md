@@ -2,11 +2,11 @@
 
 This is a practice project using as template my [window-communication repo](https://github.com/SantiagoCode/window-communication), serving as an exploration of interesting concepts.
 
-## Descripción 👀
+## Description 👀
 
 ...
 
-## Capturas de Pantalla 💻
+## Screen Shot 💻
 
 ...
 
