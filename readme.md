@@ -1,6 +1,6 @@
 # Ghostly Action ✨
 
-This is a practice project using as template my [window-communication repo](https://github.com/SantiagoCode/window-communication), serving as an exploration of interesting concepts that I plan to delve into in the future.
+This is a practice project using as template my [window-communication repo](https://github.com/SantiagoCode/window-communication), serving as an exploration of interesting concepts.
 
 ## Descripción 👀
 
