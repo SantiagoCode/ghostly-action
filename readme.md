@@ -6,7 +6,7 @@ This is a practice project using as template my [window-communication repo](http
 
 This app creates a localization effect of the second element according to its position in the opposite window. It supports a maximum of two windows.
 
-## Screen Shot 💻
+## Screenshot 💻
 
 ![alt text](image.png)
 
