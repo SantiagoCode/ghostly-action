@@ -16,7 +16,7 @@ This app creates a localization effect of the second element according to its po
 Clone the project
 
 ```bash
-  git clone https://github.com/SantiagoCode/ghostly-window.git
+  git clone https://github.com/SantiagoCode/ghostly-action.git
 ```
 
 Go to the project directory
