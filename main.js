@@ -21,7 +21,7 @@ const setLocalStorage = () => {
     windowY: y
   }))
 
-  setTimeout(() => setLocalStorage(), 500)
+  setTimeout(setLocalStorage, 500)
 }
 
 const setStyles = ({ el, data }) => {
@@ -60,7 +60,7 @@ const start = () => {
   }
 
   setLocalStorage()
-  setInterval(() => updateXY(), 500)
+  setInterval(updateXY, 500)
 }
 
 // PROGRAM INITIALIZATION
@@ -72,7 +72,7 @@ if(localStorage.getItem("init")) {
     start()
     openNewInstance()
 
-    window.addEventListener('storage', () => updateXY())
+    window.addEventListener('storage', updateXY)
   })
 }
 
