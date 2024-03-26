@@ -4,11 +4,11 @@ This is a practice project using as template my [window-communication repo](http
 
 ## Description 👀
 
-...
+This app creates a localization effect of the second element according to its position in the opposite window. It supports a maximum of two windows.
 
 ## Screen Shot 💻
 
-...
+![alt text](image.png)
 
 
 ## Run Locally 🚀
@@ -22,7 +22,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd vanilla
+  cd ghostly-window
 ```
 
 Install dependencies
