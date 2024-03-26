@@ -1,10 +1,10 @@
 import './public/style.css'
 
-let position = 0
+let ventana = 0
 
 const getPosition = () => {
   // Obtener el elemento div
-  const divElement = position == 1 ? document.querySelector('.block.blue') : document.querySelector('.block.red')
+  const divElement = ventana == 1 ? document.querySelector('.block.blue') : document.querySelector('.block.red')
 
   // Obtener las dimensiones del elemento div
   const divWidth = divElement.offsetWidth;
@@ -20,13 +20,13 @@ const getPosition = () => {
 const setLocalStorage = () => {
   const { divPosX, divPosY } = getPosition()
 
-  localStorage.setItem(position == 1 ? 'A' : 'B', JSON.stringify({
-    id: position,
+  localStorage.setItem(ventana == 1 ? 'A' : 'B', JSON.stringify({
+    id: ventana,
     windowX: divPosX,
     windowY: divPosY
   }))
 
-  setTimeout(() => setLocalStorage(), 1000)
+  setTimeout(() => setLocalStorage(), 500)
 }
 
 const setStyles = ({ el, data }) => {
@@ -36,12 +36,15 @@ const setStyles = ({ el, data }) => {
   const divWidth = el.offsetWidth;
   const divHeight = el.offsetHeight;
 
-  el.style.top = `${Number(windowY - (window.outerHeight/2) + (divHeight / 2))}px`
-  el.style.left = `${Number(windowX - (window.outerWidth/2) + (divWidth / 2))}px`
+  el.style.top = `${Number(windowY - (window.outerHeight/2) - (divHeight / 2))}px`
+  el.style.left = `${Number(windowX - (window.outerWidth/2) - (divWidth / 2))}px`
+
+  console.log(window.outerWidth);
+  console.log(window.outerHeight);
 }
 
-const updateElement = () => {
-  if(position == 1) {
+const updateXY = () => {
+  if(ventana == 1) {
     const el = document.querySelector('#secondary')
     const data = localStorage.getItem('B')
 
@@ -54,37 +57,36 @@ const updateElement = () => {
   }
 }
 
-const startGame = () => {
+const start = () => {
   localStorage.setItem("init", true)
 
-  document.querySelector('#app').innerHTML = `<div id="${position == 1 ? 'principal' : 'secondary'}" class="block ${position == 1 ? 'blue' : 'red'}"></div>`
-  document.querySelector('#app').innerHTML += `<div id="${position == 0 ? 'principal' : 'secondary'}" class="block ${position == 0 ? 'blue' : 'red'}"></div>`
+  document.querySelector('#app').innerHTML = `<div id="principal" class="block blue"></div> <div id="secondary" class="block red"></div>`
 
-  if (position == 1) {
+  if (ventana == 1) {
     document.querySelector('#principal').classList.add('fixed')
   } else {
     document.querySelector('#secondary').classList.add('fixed')
   }
 
   setLocalStorage()
-  setInterval(() => updateElement(), 1000)
+  setInterval(() => updateXY(), 500)
 }
 
 // PROGRAM INITIALIZATION
 if(localStorage.getItem("init")) {
-  startGame()
+  start()
 } else {
   document.querySelector('#openNewWindow').addEventListener('click', () => {
-    position = 1
-    startGame()
-    openNewWindow()
+    ventana = 1
+    start()
+    openNewventana()
 
-    window.addEventListener('storage', () => updateElement())
+    window.addEventListener('storage', () => updateXY())
   })
 }
 
-// OPEN NEW WINDOW
-const openNewWindow = () => {
+// OPEN NEW ventana
+const openNewventana = () => {
   const currentUrl = window.location.href
   window.open(currentUrl, '_blank')
 }
